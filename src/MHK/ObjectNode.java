@@ -1,8 +1,12 @@
+// Benjamin Farrah
+// 95-771 Data Structure and Algorithms for Information Processing
+// Project 1 Part 2
+
 // File: ObjectNode.java from the package edu.colorado.nodes
 // Complete documentation is available from the ObjectNode link in:
 //   http://www.cs.colorado.edu/~main/docs
 
-package edu.colorado.nodes;
+package MHK;
 
 /******************************************************************************
  * A ObjectNode provides a node for a linked list with
@@ -443,19 +447,6 @@ public class ObjectNode
         }
         return listNodeData;
 
-//        ObjectNode cursor;
-//        int answer;
-//
-//        answer = 0;
-//        for (cursor = head; cursor != null; cursor = cursor.link){
-//            answer++;
-//
-//            // display every third
-//            if (answer % 3 == 0) {
-//                System.out.println("Node: " + answer);
-//                System.out.println();
-//            }
-//        }
     }
     /*
         6. Add an instance method String toString() to the ObjectNode
@@ -464,7 +455,6 @@ public class ObjectNode
      */
     public String toString(){
         String listNodeData;
-        //System.out.println(data);
 
         listNodeData = "";
 
@@ -472,7 +462,6 @@ public class ObjectNode
         for (ObjectNode node = new ObjectNode(data, link); node != null; node = node.link){
             listNodeData += (node.getData());
             if (node.getLink() != null) listNodeData += ", ";
-            //listNodeData += ("\n");
         }
         return listNodeData;
     }

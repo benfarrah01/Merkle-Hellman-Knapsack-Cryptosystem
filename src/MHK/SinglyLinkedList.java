@@ -1,8 +1,10 @@
-package edu.colorado.nodes;
+// Benjamin Farrah
+// 95-771 Data Structure and Algorithms for Information Processing
+// Project 1 Part 2
+
+package MHK;
 
 public class SinglyLinkedList {
-//    private Object data;
-//    private ObjectNode link;
     ObjectNode iterator;
     // head pointer
         // always points to the head of the list
@@ -22,6 +24,7 @@ public class SinglyLinkedList {
         //countNodes = 0;
         head = new ObjectNode(null,null);
         tail = new ObjectNode(null,null);
+        iterator = head;
         //tail = new ObjectNode(null, null);
     }
 
@@ -31,12 +34,12 @@ public class SinglyLinkedList {
         iterator = head;
     }
 
-    public java.lang.Object next(){
+    public Object next(){
         // return the Object pointed to by the iterator and increment the iterator to the next node in
         //      the list. This reference becomes null if the object returned is the last node on the list.
         ObjectNode nextNode = iterator;
         iterator = iterator.getLink();
-        return nextNode;
+        return nextNode.getData();
 
     }
 
@@ -45,7 +48,7 @@ public class SinglyLinkedList {
         return iterator != null;
     }
 
-    public void addAtFrontNode(java.lang.Object c){
+    public void addAtFrontNode(Object c){
         // Add a node containing the Object c to the head of the linked list.
         //head.addNodeAfter(c);
         //ObjectNode oldHead = ObjectNode.listCopy(head);
@@ -63,9 +66,10 @@ public class SinglyLinkedList {
         }else{
             head = new ObjectNode(c, head);
         }
+        countNodes++;
     }
 
-    public void addAtEndNode(java.lang.Object c){
+    public void addAtEndNode(Object c){
         // Add a node containing the Object c to the end of the linked list.
         // No searching of the list is required. The tail pointer is used to access the last node
         // in O(1) time.
@@ -82,23 +86,24 @@ public class SinglyLinkedList {
             tail = new ObjectNode(c, null);
             oldTail.setLink(tail);
         }
+        countNodes++;
     }
 
     public int countNodes(){
         return countNodes;
     }
 
-    public java.lang.Object getObjectAt(int i){
+    public Object getObjectAt(int i){
         // Returns a reference (0 based) to the object with list index i. *
-        return ObjectNode.listPosition(head, i);
+        return ObjectNode.listPosition(head, (i+1));
     }
 
-    public java.lang.Object getLast(){
+    public Object getLast(){
         // Returns the data in the tail of the list
         return tail.getData();
     }
 
-    public java.lang.String toString(){
+    public String toString(){
         // Returns the list as a String
         return head.toString();
     }
